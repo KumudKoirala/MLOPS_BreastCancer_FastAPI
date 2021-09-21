@@ -21,8 +21,8 @@ model =joblib.load('breast_cancer_classifier.joblib')
 async def get_predictions(cancer:breast_cancer):
     data=dict(cancer)['data']
     prediction= model.predict(data).tolist()
-    log_probability=model.predict_proba(data).tolist()
-    return {"prediction":prediction,"log_probability":log_probability}
+    class_probability=model.predict_proba(data).tolist()
+    return {"prediction":prediction,"class_probability":class_probability}
 
 
 
